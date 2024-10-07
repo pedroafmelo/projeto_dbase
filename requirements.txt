@@ -1,0 +1,7 @@
+environ
+PyYAML
+sqlalchemy
+requests
+bs4
+pandas
+numpy

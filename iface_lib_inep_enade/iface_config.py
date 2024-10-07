@@ -2,7 +2,6 @@
 """Import modules"""
 
 from os import environ
-from dotenv import load_dotenv
 from os.path import join, dirname, abspath
 from yaml import load
 from yaml.loader import SafeLoader
@@ -37,8 +36,6 @@ class Config:
         data = {}
         with open(join(dirname(__file__), "env.yaml"), encoding="utf-8") as file:
             data = load(file, Loader=SafeLoader)
-        
-        load_dotenv()
 
         self.vars = Variables(
             data_url=data.get("data_url"),
@@ -65,7 +62,10 @@ class Config:
         connection = engine.connect()
 
         try:
-            connection.execute(f""" CREATE DATABASE {self.vars.table}""")
+            connection.execute(text(f"""CREATE DATABASE {self.vars.table}"""))
+            engine = create_engine(
+                f"{self.vars.db_url}/{self.vars.table}"
+                )
         
         except DatabaseError:
             engine = create_engine(
@@ -73,6 +73,7 @@ class Config:
                 )
 
         return engine
+    
 
     def __repr__(self):
         """ Basic class
