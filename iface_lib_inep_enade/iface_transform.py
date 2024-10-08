@@ -9,6 +9,7 @@ from re import sub
 from unidecode import unidecode
 from sqlalchemy import insert
 from sqlalchemy.exc import IntegrityError
+from sqlalchemy.orm.decl_api import DeclarativeMeta
 
 class Transform:
     """ Iface Transform """
@@ -128,7 +129,7 @@ class Transform:
         return processed_files
     
 
-    def __insert(self, files_list: list, table) -> None:
+    def __insert(self, files_list: list, table: DeclarativeMeta) -> None:
         """ Insert data
         into database"""
 
@@ -168,7 +169,7 @@ class Transform:
         return f"Inserted {table} Data Into Database"
 
 
-    def __insert_enade(self, files_list: list, table) -> None:
+    def __insert_enade(self, files_list: list, table: DeclarativeMeta) -> None:
         """ Insert ConceitoEnade data
         into database"""
 
