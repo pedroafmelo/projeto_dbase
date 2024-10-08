@@ -52,7 +52,6 @@ class Extract:
                            reverse=True)
 
             for year in years[:4]:
-                print(year)
                 response = requests.get(f"{url}/{year}")
                 if not response.ok:
                         raise FileNotFoundError(f"Error on read INEP Enade {year}")
@@ -61,9 +60,7 @@ class Extract:
                 links_all = soup.find_all("a", href=True)
                 links_filtered = [link["href"] for link in links_all if "conceito_enade" in 
                                 link["href"].lower() and "xlsx" in link["href"]][0]
-                print(links_filtered)
                 links.append(links_filtered)
-            print(links)
 
             return links
         
@@ -94,17 +91,15 @@ class Extract:
         except Exception as error:
             raise OSError(error) from error
     
-    def download(self):
+    def __download(self) -> None:
 
          
         links = self.__check_files()
-        print(links)
 
         try: 
             for link in links.to_dict("records"):
                 filename = link["filename"]
                 year = link["year"]
-                print(getcwd())
 
                 makedirs(path.join(self.data_dir, str(year)), 
                          exist_ok=True)
@@ -119,8 +114,9 @@ class Extract:
                                     filename), "wb") as file:
                     
                     file.write(request.content)
+                    print(f"Downloaded {filename} file successfully\n")
         
-            return "Download files finished"
+            print("Download files finished\n")
         
         except Exception as error:
             raise OSError("Could not download INEP - ENADE")
