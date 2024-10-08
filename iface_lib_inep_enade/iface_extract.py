@@ -8,6 +8,7 @@ from pandas import DataFrame
 import numpy as np
 from re import sub
 
+
 class Extract:
     """Extract Interface"""
 
