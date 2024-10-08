@@ -132,7 +132,7 @@ class Model:
 
             return "Local Curso"
 
-    def __create_tables(self):
+    def __create_tables(self) -> None:
         """ Creates ORM """
 
         engine = self.config.engine
