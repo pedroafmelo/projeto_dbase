@@ -92,7 +92,7 @@ class Extract:
             raise OSError(error) from error
     
     def __download(self) -> None:
-
+        """Download datasets"""
          
         links = self.__check_files()
 
