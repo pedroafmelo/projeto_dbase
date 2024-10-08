@@ -11,6 +11,7 @@ from sqlalchemy import insert
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm.decl_api import DeclarativeMeta
 
+
 class Transform:
     """ Iface Transform """
 
