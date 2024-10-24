@@ -1,11 +1,10 @@
 # -* coding: UTF-8 -*- 
 """Import modules"""
 
-from os import path, makedirs, getcwd
+from os import path, makedirs, system
 import requests
 from bs4 import BeautifulSoup
 from pandas import DataFrame
-import numpy as np
 from re import sub
 
 
@@ -33,6 +32,7 @@ class Extract:
         string representation"""
 
         return str(self.data_dir)
+
 
     def __get_links(self) -> list:
         """Get datasets links
@@ -68,6 +68,7 @@ class Extract:
         except Exception as error:
              raise OSError(error) from error
         
+
     def __check_files(self) -> DataFrame:
         """Check files
         return Dataframe"""
@@ -92,6 +93,7 @@ class Extract:
         except Exception as error:
             raise OSError(error) from error
     
+
     def __download(self) -> None:
         """Download datasets"""
          
@@ -107,15 +109,12 @@ class Extract:
                 
                 url = link["url"]
 
-                request = requests.get(url)
-                if not request.ok:
-                    raise FileNotFoundError(f"Error on Download INEP Enade {year}")
-
-                with open(path.join(self.data_dir, str(year),
-                                    filename), "wb") as file:
-                    
-                    file.write(request.content)
-                    print(f"Downloaded {filename} file successfully\n")
+                os_cmd = f"wget -c {url} -O {path.join(
+                                                self.data_dir, str(year),
+                                                    filename)}"
+                system(os_cmd)    
+                
+                print(f"Downloaded {filename} file successfully\n")
         
             print("Download files finished\n")
         

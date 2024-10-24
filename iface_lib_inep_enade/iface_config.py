@@ -2,14 +2,13 @@
 """Import modules"""
 
 from os import environ
-from os.path import join, dirname, abspath
+from os.path import join, dirname
 from dotenv import load_dotenv
 from yaml import load
 from yaml.loader import SafeLoader
 from dataclasses import dataclass
 from sqlalchemy import text, create_engine
-from sqlalchemy.orm import sessionmaker, Session
-from sqlalchemy.ext.automap import automap_base
+from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import DatabaseError
 
 

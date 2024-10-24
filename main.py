@@ -9,7 +9,7 @@ from iface_lib_inep_enade.iface_transform import Transform
 
 
 def main():
-    """Handles my
+    """Handles our
     first SQL Project"""
 
     Model()._Model__create_tables()
