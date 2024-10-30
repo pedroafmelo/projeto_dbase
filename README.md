@@ -7,7 +7,9 @@ Este repositório é destinado à construção do projeto final da disciplina de
 - Gabriel Batista Pontes
   
 <br>
-Neste projeto fomos instruídos a criar um projeto físico de banco de dados utilizando o SGBD MySQL, a partir de dados abertos baixados em algum portal da *web*. Assim, pensamos em uma abordagem de automação do processo, desenvolvendo uma versãzo simplificada de um ETL, onde a Extração, a Transformação e a Carga de dados são feitos de forma automática, segura e otimizada. Os dados escolhidos foram os do Conceito Enade, disponibilizados no portal de [Portal de dados abertos do INEP](https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/indicadores-educacionais/indicadores-de-qualidade-da-educacao-superior).
+Neste projeto fomos instruídos a criar um projeto físico de banco de dados utilizando o SGBD MySQL, a partir de dados abertos baixados em algum portal da *web*. Assim, pensamos em uma abordagem de automação do processo, desenvolvendo uma versãzo simplificada de um ETL, onde a Extração, a Transformação e a Carga de dados são feitos de forma automática, segura e otimizada. Os dados escolhidos foram os do Conceito Enade, disponibilizados em:<br> <br>
+
+- [Portal de dados abertos do INEP](https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/indicadores-educacionais/indicadores-de-qualidade-da-educacao-superior).
 <br>
 
 ## Principais requisitos:
